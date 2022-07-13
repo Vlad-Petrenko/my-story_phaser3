@@ -1,39 +1,88 @@
-import Phaser from 'phaser';
-import logoImg from './assets/logo.png';
+import Phaser from "phaser";
 
-class MyGame extends Phaser.Scene
-{
-    constructor ()
-    {
-        super();
-    }
+import PreloadScene from "./scenes/PreloadScene.js";
+import IntroScene from "./scenes/IntroScene.js";
+import BeachDressScene from "./scenes/BeachDressScene.js";
+import BeachDressStrawBagScene from "./scenes/BeachDressStrawBagScene.js";
+import BeachDressStrawBagNecklaceScene from "./scenes/BeachDressStrawBagNecklaceScene.js";
+import BeachDressStrawBagGlassesScene from "./scenes/BeachDressStrawBagGlassesScene.js";
+import BeachDressStrawBagNecklaceBalconyScene from "./scenes/BeachDressStrawBagNecklaceBalconyScene.js";
+import BeachDressStrawBagGlassesBalconyScene from "./scenes/BeachDressStrawBagGlassesBalconyScene.js";
+import BeachDressBlueBagScene from "./scenes/BeachDressBlueBagScene.js";
+import BeachDressBlueBagGlassesScene from "./scenes/BeachDressBlueBagGlassesScene.js";
+import BeachDressBlueBagNecklaceScene from "./scenes/BeachDressBlueBagNecklaceScene.js";
+import BeachDressBlueBagNecklaceBalconyScene from "./scenes/BeachDressBlueBagNecklaceBalconyScene.js";
+import BeachDressBlueBagGlassesBalconyScene from "./scenes/BeachDressBlueBagGlassesBalconyScene.js";
+import BeachDressBlueBagGlassesBeachScene from "./scenes/BeachDressBlueBagGlassesBeachScene.js";
+import BeachDressBlueBagNecklaceBeachScene from "./scenes/BeachDressBlueBagNecklaceBeachScene.js";
+import BeachDressStrawBagGlassesBeachScene from "./scenes/BeachDressStrawBagGlassesBeachScene.js";
+import BeachDressStrawBagNecklaceBeachScene from "./scenes/BeachDressStrawBagNecklaceBeachScene.js";
+import PinkDressScene from "./scenes/PinkDressScene.js";
+import PinkDressStrawBagScene from "./scenes/PinkDressStrawBagScene.js";
+import PinkDressBlueBagScene from "./scenes/PinkDressBlueBagScene.js";
+import PinkDressBlueBagCollarScene from "./scenes/PinkDressBlueBagCollarScene.js";
+import PinkDressBlueBagGlassesScene from "./scenes/PinkDressBlueBagGlassesScene.js";
+import PinkDressStrawBagCollarScene from "./scenes/PinkDressStrawBagCollarScene.js";
+import PinkDressStrawBagGlassesScene from "./scenes/PinkDressStrawBagGlassesScene.js";
+import PinkDressBlueBagCollarBalconyScene from "./scenes/PinkDressBlueBagCollarBalconyScene.js";
+import PinkDressBlueBagCollarBeachScene from "./scenes/PinkDressBlueBagCollarBeachScene.js";
+import PinkDressBlueBagGlassesBalconyScene from "./scenes/PinkDressBlueBagGlassesBalconyScene.js";
+import PinkDressBlueBagGlassesBeachScene from "./scenes/PinkDressBlueBagGlassesBeachScene.js";
+import PinkDressStrawBagCollarBalconyScene from "./scenes/PinkDressStrawBagCollarBalconyScene.js";
+import PinkDressStrawBagCollarBeachScene from "./scenes/PinkDressStrawBagCollarBeachScene.js";
+import PinkDressStrawBagGlassesBalconyScene from "./scenes/PinkDressStrawBagGlassesBalconyScene.js";
+import PinkDressStrawBagGlassesBeachScene from "./scenes/PinkDressStrawBagGlassesBeachScene.js";
 
-    preload ()
-    {
-        this.load.image('logo', logoImg);
-    }
-      
-    create ()
-    {
-        const logo = this.add.image(400, 150, 'logo');
-      
-        this.tweens.add({
-            targets: logo,
-            y: 450,
-            duration: 2000,
-            ease: "Power2",
-            yoyo: true,
-            loop: -1
-        });
-    }
-}
+const GAME_HEIGHT = 800;
+const GAME_WIDTH = 800;
 
 const config = {
-    type: Phaser.AUTO,
-    parent: 'phaser-example',
-    width: 800,
-    height: 600,
-    scene: MyGame
+  title: "myGame",
+  type: Phaser.AUTO,
+  width: GAME_WIDTH,
+  height: GAME_HEIGHT,
+  parent: "game",
+
+  scale: {
+    parent: "mygame",
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+
+  scene: [
+    PreloadScene,
+    IntroScene,
+    BeachDressScene,
+    BeachDressStrawBagScene,
+    BeachDressBlueBagScene,
+    BeachDressStrawBagNecklaceScene,
+    BeachDressStrawBagGlassesScene,
+    BeachDressBlueBagNecklaceScene,
+    BeachDressBlueBagGlassesScene,
+    BeachDressStrawBagGlassesBalconyScene,
+    BeachDressBlueBagGlassesBeachScene,
+    BeachDressStrawBagNecklaceBalconyScene,
+    BeachDressBlueBagNecklaceBeachScene,
+    BeachDressBlueBagNecklaceBalconyScene,
+    BeachDressStrawBagNecklaceBeachScene,
+    BeachDressBlueBagGlassesBalconyScene,
+    BeachDressStrawBagGlassesBeachScene,
+    PinkDressScene,
+    PinkDressStrawBagScene,
+    PinkDressBlueBagScene,
+    PinkDressBlueBagCollarScene,
+    PinkDressBlueBagGlassesScene,
+    PinkDressStrawBagCollarScene,
+    PinkDressStrawBagGlassesScene,
+    PinkDressBlueBagCollarBalconyScene,
+    PinkDressBlueBagCollarBeachScene,
+    PinkDressBlueBagGlassesBalconyScene,
+    PinkDressBlueBagGlassesBeachScene,
+    PinkDressStrawBagCollarBalconyScene,
+    PinkDressStrawBagCollarBeachScene,
+    PinkDressStrawBagGlassesBalconyScene,
+    PinkDressStrawBagGlassesBeachScene,
+  ],
 };
 
-const game = new Phaser.Game(config);
+export const game = new Phaser.Game(config);
